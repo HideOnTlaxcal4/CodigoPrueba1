@@ -12,7 +12,16 @@ class Solution {
             carry = sum / 10;
             int newDigit = sum % 10;
 
-            // La creación del nodo se hará en el siguiente paso
+            ListNode newNode = new ListNode(newDigit);
+            if (resultListHead == null) {
+                resultListHead = newNode;
+            } else {
+                resultListLastNode.next = newNode;
+            }
+            resultListLastNode = newNode;
+
+            if (l1 != null) l1 = l1.next;
+            if (l2 != null) l2 = l2.next;
         }
 
         return resultListHead;
